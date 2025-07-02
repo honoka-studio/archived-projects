@@ -1,0 +1,49 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: bossdd-monitor
+  profiles:
+    active: dev
+  flyway:
+    enabled: false
+    locations: classpath:flyway/sql
+    baseline-on-migrate: true
+    baseline-version: 0.0.0
+    validate-on-migrate: false
+    clean-disabled: true
+    clean-on-validation-error: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+honoka:
+  starter:
+    mybatis:
+      enabled: true
+
+mybatis-plus:
+  # classpath*:mapper/**/*.xml为默认值，默认扫描resources/mapper目录及其子目录下所有xml文件
+  mapper-locations: classpath*:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+app:
+  browser:
+    block-url-keywords:
+      - /zpCommon/data/getCityShowPosition
+      - /zpgeek/qrcode/generate.json
+      - /common/data/city/site.json
+      - /zpweixin/qrcode/getqrcode
+      - /zpCommon/data/city.json
+    error-page-detection:
+      url-keywords:
+        - /web/user/safe/verify-slider
+      selectors:
+        - .wrap-verify-slider
+
+logging:
+  level:
+    org.littleshoot.proxy.impl: off
+    io.netty.util.concurrent: off

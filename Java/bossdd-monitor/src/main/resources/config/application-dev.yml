@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bossdd_monitor?serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+honoka:
+  qqrobot:
+    admin-qq: 12345
+    developing-group: 10000
+    framework:
+      # 指定一个机器人框架的实现
+      impl: onebot
+      onebot:
+        host: localhost
+        websocket-port: 3001
+        http-port: 3101
+
+app:
+  proxy:
+    address: brd.superproxy.io:33335
+    username: test
+    password: test
+  browser:
+    start-process-by-app: true
+    stop-process-by-command: false
+    user-data-dir:
+      path: ./build/selenium/user-data
+    default-headless: false
+  monitor:
+    delay: 1m
+    initial-delay: 0s
+    weekday-range: 1-7
+    hour-range: 0-24
+
+logging:
+  level:
+    de.honoka.bossddmonitor.mapper: debug
