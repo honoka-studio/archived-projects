@@ -1,0 +1,13 @@
+package de.honoka.demo.spring.oauth2.gateway
+
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient
+
+@EnableDiscoveryClient
+@SpringBootApplication
+class GatewayApplication
+
+fun main(args: Array<String>) {
+    runApplication<GatewayApplication>(*args)
+}
